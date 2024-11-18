@@ -1,24 +1,22 @@
-import styles from './header.module.css'
-// import { IoMenu } from "react-icons/io5";
-// import { LightDarkModeSet } from '../lightDarkModeSet/LightDarkModeSet';
+import { DarkmodeIcon, LightmodeIcon, MenuIcon } from "../assets/icons/icons"
 
 export const Header = () => {
-    
 
     return (
-        <header className="flex flex-row justify-center" /* className={`${styles.header}`} */>
-            <div /* className={`btn ${styles.sidebar__menu}`} */>
-                {/* <IoMenu /> */}
-                <p>Hamburger dropdown menu</p>
+        <header className='bg-lightmode-main-bg dark:bg-darkmode-main-bg flex flex-row justify-center'>
+            <div className='text-lightmode-prim-text dark:text-darkmode-prim-text'>
+                <MenuIcon />
             </div>
-            <div /* className={`${styles.logo__container}` }*/>
+            <div className='text-lightmode-prim-text dark:text-darkmode-prim-text'>
                 GIDI
             </div>
-            <div /* className={`flex ${styles.header__options}`} */>
-                {/* <LightDarkModeSet /> */}
-                <p>darkmode loggo</p>
-                <div className='btn'>logga in</div>
-            </div>
+            <ul>
+                <li><DarkmodeIcon /></li>
+                <li><LightmodeIcon /></li>
+                <li></li>
+
+                <div className='text-lightmode-prim-text dark:text-darkmode-prim-text'>logga in</div>
+            </ul>
         </header>
     )
 }
