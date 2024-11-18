@@ -1,0 +1,27 @@
+.header {
+    /* main container alla ligger i */
+    display: flex;
+    justify-content: space-between;
+    color: var(--darkmode--prim--textcolor);
+    padding: .5rem;
+    font-size: 1.5rem;
+}
+
+.sidebar__menu {
+    /* till vänster */
+}
+
+.logo__container {
+    font-size: 2rem;
+    justify-self: center;
+}
+
+.header__options {
+    /* till höger */
+    align-items: center;
+    gap: .5rem;
+}
+
+.dark__light__mode {
+    
+}
