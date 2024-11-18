@@ -4,11 +4,13 @@ import { Header } from "./components/Header"
 function App() {
 
   return (
-    <>
-      <Header />
-      <p className="text-3xl font-bold underline">main app!!</p>
-      <Footer />
-    </>
+      <div className="bg-white dark:darkmode-main flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow flex justify-center">
+          <p className="text-3xl font-bold underline">main app!!</p>
+        </main>
+        <Footer />
+      </div>
   )
 }
 

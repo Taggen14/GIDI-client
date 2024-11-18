@@ -3,9 +3,10 @@ import styles from './header.module.css'
 // import { LightDarkModeSet } from '../lightDarkModeSet/LightDarkModeSet';
 
 export const Header = () => {
+    
 
     return (
-        <header /* className={`${styles.header}`} */>
+        <header className="flex flex-row justify-center" /* className={`${styles.header}`} */>
             <div /* className={`btn ${styles.sidebar__menu}`} */>
                 {/* <IoMenu /> */}
                 <p>Hamburger dropdown menu</p>
