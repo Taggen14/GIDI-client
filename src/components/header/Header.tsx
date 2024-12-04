@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { BrightnessDeviceSettingIcon, DarkmodeIcon, LightmodeIcon, MenuIcon } from "../assets/icons/icons"
+import { BrightnessDeviceSettingIcon, DarkmodeIcon, LightmodeIcon, MenuIcon } from "../../assets/icons/icons"
 
 export const Header = () => {
     const [theme, setTheme] = useState('dark')
