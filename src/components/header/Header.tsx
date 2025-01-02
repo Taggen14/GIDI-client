@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { BrightnessDeviceSettingIcon, DarkmodeIcon, LightmodeIcon, MenuIcon } from "../../assets/icons/icons"
 
-type Theme = 'dark' | 'light' | 'system';
+type Theme = 'dark' | 'light' | 'system'
 
 export const Header = () => {
     const themes: Theme[] = ['dark', 'light', 'system']
@@ -16,17 +16,17 @@ export const Header = () => {
     useEffect(() => {
         const root = document.documentElement;
         if (theme === 'dark') {
-            root.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
+            root.classList.add('dark')
+            localStorage.setItem('theme', 'dark')
         } else if (theme === 'light') {
-            root.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
+            root.classList.remove('dark')
+            localStorage.setItem('theme', 'light')
         } else {
-            localStorage.removeItem('theme');
+            localStorage.removeItem('theme')
             if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                root.classList.add('dark');
+                root.classList.add('dark')
             } else {
-                root.classList.remove('dark');
+                root.classList.remove('dark')
             }
         }
     }, [theme]);
