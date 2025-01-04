@@ -2,14 +2,14 @@ import { RefObject, useEffect } from "react"
 import { BrightnessDeviceSettingIcon, DarkmodeIcon, LightmodeIcon } from "../../assets/icons/icons"
 import { Theme } from "../../types/types"
 
-interface DarkLightModeProps {
+interface ThemeDropdownProps {
     setTheme: (value: Theme) => void
     show: boolean,
     setShow: (value: boolean) => void,
     themeMenuRef: RefObject<HTMLDivElement>
 }
 
-export const DarkLightMode = ({ setTheme, show, setShow, themeMenuRef }: DarkLightModeProps) => {
+export const ThemeDropdown = ({ setTheme, show, setShow, themeMenuRef }: ThemeDropdownProps) => {
     const themes: Theme[] = ['dark', 'light', 'system']
 
     // closes theme dropdown

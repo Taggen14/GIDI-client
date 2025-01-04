@@ -1,12 +1,12 @@
 import { useRef, useEffect, useState } from "react"
 import { BrightnessDeviceSettingIcon, DarkmodeIcon, LightmodeIcon, MenuIcon } from "../../assets/icons/icons"
-import { DarkLightMode } from "./DarkLightMode"
+import { ThemeDropdown } from "./ThemeDropdown"
 import { Theme } from "../../types/types"
 
 export const Header = () => {
     const [theme, setTheme] = useState<Theme>('dark')
     const [show, setShow] = useState(false)
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn/* , setIsLoggedIn */] = useState(false)
 
     const themeMenuRef = useRef<HTMLDivElement>(null)
 
@@ -38,13 +38,13 @@ export const Header = () => {
                 GIDI
             </h1>
             <div className="flex items-center p-4 gap-1">
-                <div ref={themeMenuRef} className="relative">
+                <div ref={themeMenuRef} className="relative dark:text-lightmode-prim-text">
                     <button className="p-2 w-10 h-10 bg-gray-200 rounded-full" onClick={() => setShow(!show)}>
                         {theme === 'dark' ? (<DarkmodeIcon />)
                             : theme === 'light' ? (<LightmodeIcon />)
                                 : <BrightnessDeviceSettingIcon />}
                     </button>
-                    {show && <DarkLightMode show={show} setShow={setShow} setTheme={setTheme} themeMenuRef={themeMenuRef} />}
+                    {show && <ThemeDropdown show={show} setShow={setShow} setTheme={setTheme} themeMenuRef={themeMenuRef} />}
                 </div>
                 <div className=''>logga {isLoggedIn ? 'ut' : 'in'}</div>
             </div>
