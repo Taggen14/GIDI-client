@@ -1,8 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { TestMain } from "./components/TestMain"
-import { Login } from "./components/pages/login/Login"
+import { Login } from "./components/pages/auth/Login"
 import { Layout } from "./Layout"
-import { Register } from "./components/pages/login/Register"
+import { Register } from "./components/pages/auth/Register"
+import { EventPage } from "./components/pages/event/EventPage"
+import { CalendarFeedPage } from "./components/pages/calendarFeed/CalendarFeedPage"
 
 const router = createBrowserRouter([
   {
@@ -20,7 +22,15 @@ const router = createBrowserRouter([
       {
         path: '/registrera',
         element: <Register />,
-      }
+      },
+      {
+        path: '/event',
+        element: <EventPage />,
+      },
+      {
+        path: '/kalender',
+        element: <CalendarFeedPage />,
+      },
     ]
   },
 ])

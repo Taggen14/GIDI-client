@@ -3,10 +3,12 @@ import { BrightnessDeviceSettingIcon, DarkmodeIcon, LightmodeIcon, MenuIcon } fr
 import { ThemeDropdown } from "./ThemeDropdown"
 import { Theme } from "../../types/types"
 import { Link } from "react-router-dom"
+import { GlobalNavMenu } from "./GlobalNavMenu"
 
 export const Header = () => {
     const [theme, setTheme] = useState<Theme>('dark')
     const [show, setShow] = useState(false)
+    const [showGlobalNav, setShowGlobalNav] = useState(false)
     const [isLoggedIn/* , setIsLoggedIn */] = useState(false)
 
     const themeMenuRef = useRef<HTMLDivElement>(null)
@@ -33,7 +35,10 @@ export const Header = () => {
     return (
         <header className='bg-lightmode-main-bg dark:bg-darkmode-main-bg text-lightmode-prim-text dark:text-darkmode-prim-text flex items-center justify-between p-4 fill-current'>
             <div className='w-6 h-6'>
-                <MenuIcon />
+                <button onClick={() => setShowGlobalNav(!showGlobalNav)}>
+                    <MenuIcon />
+                </button>
+                {showGlobalNav && <GlobalNavMenu showGlobalNav={showGlobalNav} setShowGlobalNav={setShowGlobalNav} />}
             </div>
             <h1 className='text-4xl font-bold'>
                 <Link to={"/"}>GIDI</Link>
@@ -48,8 +53,8 @@ export const Header = () => {
                     {show && <ThemeDropdown show={show} setShow={setShow} setTheme={setTheme} themeMenuRef={themeMenuRef} />}
                 </div>
                 <div className=''>
-                   <Link to={'/login'}>logga {isLoggedIn ? 'ut' : 'in'}</Link> 
-                    </div>
+                    <Link to={'/login'}>logga {isLoggedIn ? 'ut' : 'in'}</Link>
+                </div>
             </div>
         </header>
     )
