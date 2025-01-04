@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from "react"
 import { BrightnessDeviceSettingIcon, DarkmodeIcon, LightmodeIcon, MenuIcon } from "../../assets/icons/icons"
 import { ThemeDropdown } from "./ThemeDropdown"
 import { Theme } from "../../types/types"
+import { Link } from "react-router-dom"
 
 export const Header = () => {
     const [theme, setTheme] = useState<Theme>('dark')
@@ -35,7 +36,7 @@ export const Header = () => {
                 <MenuIcon />
             </div>
             <h1 className='text-4xl font-bold'>
-                GIDI
+                <Link to={"/"}>GIDI</Link>
             </h1>
             <div className="flex items-center p-4 gap-1">
                 <div ref={themeMenuRef} className="relative dark:text-lightmode-prim-text">
@@ -46,7 +47,9 @@ export const Header = () => {
                     </button>
                     {show && <ThemeDropdown show={show} setShow={setShow} setTheme={setTheme} themeMenuRef={themeMenuRef} />}
                 </div>
-                <div className=''>logga {isLoggedIn ? 'ut' : 'in'}</div>
+                <div className=''>
+                   <Link to={'/login'}>logga {isLoggedIn ? 'ut' : 'in'}</Link> 
+                    </div>
             </div>
         </header>
     )

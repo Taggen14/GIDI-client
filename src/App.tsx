@@ -1,16 +1,33 @@
-import { Footer } from "./components/Footer"
-import { Header } from "./components/header/Header"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { TestMain } from "./components/TestMain"
+import { Login } from "./components/pages/login/Login"
+import { Layout } from "./Layout"
+import { Register } from "./components/pages/login/Register"
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: '/',
+        element: <TestMain />
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+      {
+        path: '/registrera',
+        element: <Register />,
+      }
+    ]
+  },
+])
 
 function App() {
-
   return (
-      <div className="bg-white dark:darkmode-main flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow flex justify-center">
-          <p className="text-3xl font-bold underline">main app!!</p>
-        </main>
-        <Footer />
-      </div>
+        <RouterProvider router={router} />
   )
 }
 
