@@ -12,7 +12,7 @@ export const Login = () => {
             <form className="flex flex-col" onSubmit={loginUser}>
                 <label htmlFor="login-username">Användar namn:</label>
                 <input type="text" name="login-username" placeholder="..." />
-                <label htmlFor="login-password">Användar namn:</label>
+                <label htmlFor="login-password">Lösenord:</label>
                 <input type="password" name="login-password" placeholder="..." />
                 <button type="submit">Logga in</button>
             </form>

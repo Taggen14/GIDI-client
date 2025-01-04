@@ -6,7 +6,7 @@ interface GlobalNavMenuProps {
 
 export const GlobalNavMenu = ({ /* showGlobalNav, setShowGlobalNav */ }: GlobalNavMenuProps) => {
     return (
-        <ul>
+        <ul className="absolute">
             <li>
                 <Link to={'/event'}>Event</Link>
             </li>

@@ -5,6 +5,7 @@ import { Layout } from "./Layout"
 import { Register } from "./components/pages/auth/Register"
 import { EventPage } from "./components/pages/event/EventPage"
 import { CalendarFeedPage } from "./components/pages/calendarFeed/CalendarFeedPage"
+import { Profile } from "./components/pages/auth/Profile"
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />,
+      },
+      {
+        path: '/Profil',
+        element: <Profile />,
       },
       {
         path: '/registrera',

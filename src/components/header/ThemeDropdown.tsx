@@ -28,9 +28,9 @@ export const ThemeDropdown = ({ setTheme, show, setShow, themeMenuRef }: ThemeDr
     }
 
     return (
-        <ul className="absolute right-0 top-full mt-2 bg-white border w-fit rounded-lg">
+        <ul className="absolute right-0 top-full p-1 mt-2 bg-white border w-fit rounded-lg">
             {themes.map((mode) => (
-                <li key={mode} className="flex w-100 m-1 hover:cursor-pointer hover:bg-gray-200" onClick={() => changeThemeMode(mode)}>
+                <li key={mode} className="flex w-100 hover:cursor-pointer hover:bg-gray-200 p-1 hover:rounded-lg" onClick={() => changeThemeMode(mode)}>
                     <button className='w-6 h-6'>
                         {mode === 'dark' && <DarkmodeIcon />}
                         {mode === 'light' && <LightmodeIcon />}

@@ -1,17 +1,19 @@
 import { useRef, useEffect, useState } from "react"
-import { BrightnessDeviceSettingIcon, DarkmodeIcon, LightmodeIcon, MenuIcon } from "../../assets/icons/icons"
+import { BrightnessDeviceSettingIcon, DarkmodeIcon, LightmodeIcon, MenuIcon, ProfileIcon } from "../../assets/icons/icons"
 import { ThemeDropdown } from "./ThemeDropdown"
 import { Theme } from "../../types/types"
 import { Link } from "react-router-dom"
 import { GlobalNavMenu } from "./GlobalNavMenu"
+import { ProfileDropdown } from "./ProfileDropdown"
 
 export const Header = () => {
     const [theme, setTheme] = useState<Theme>('dark')
     const [show, setShow] = useState(false)
     const [showGlobalNav, setShowGlobalNav] = useState(false)
-    const [isLoggedIn/* , setIsLoggedIn */] = useState(false)
+    const [showProfileMenu, setShowProfileMenu] = useState(false)
 
     const themeMenuRef = useRef<HTMLDivElement>(null)
+    const profileMenuRef = useRef<HTMLDivElement>(null)
 
     // changing theme without refreshing browser, and save to LS
     useEffect(() => {
@@ -34,7 +36,7 @@ export const Header = () => {
 
     return (
         <header className='bg-lightmode-main-bg dark:bg-darkmode-main-bg text-lightmode-prim-text dark:text-darkmode-prim-text flex items-center justify-between p-4 fill-current'>
-            <div className='w-6 h-6'>
+            <div className='relative w-6 h-6'>
                 <button onClick={() => setShowGlobalNav(!showGlobalNav)}>
                     <MenuIcon />
                 </button>
@@ -52,8 +54,11 @@ export const Header = () => {
                     </button>
                     {show && <ThemeDropdown show={show} setShow={setShow} setTheme={setTheme} themeMenuRef={themeMenuRef} />}
                 </div>
-                <div className=''>
-                    <Link to={'/login'}>logga {isLoggedIn ? 'ut' : 'in'}</Link>
+                <div ref={profileMenuRef} className='relative dark:text-lightmode-prim-text'>
+                    <button className="p-2.5 w-10 h-10 bg-gray-200 rounded-full" onClick={() => setShowProfileMenu(!showProfileMenu)}>
+                        <ProfileIcon />
+                    </button>
+                    {showProfileMenu && <ProfileDropdown showProfileMenu={showProfileMenu} setShowProfileMenu={setShowProfileMenu} profileMenuRef={profileMenuRef} />}
                 </div>
             </div>
         </header>
